@@ -27,11 +27,6 @@ const MyProfile = () => {
       setAvatarURL(storedAvatarURL);
     }
 
-    const storedBannerURL = localStorage.getItem("bannerURL");
-    if (storedBannerURL) {
-      setBannerURL(storedBannerURL);
-    }
-
     const fetchUserPosts = async () => {
       try {
         const authToken = localStorage.getItem("accessToken");
@@ -54,7 +49,31 @@ const MyProfile = () => {
       }
     };
 
+    const fetchBannerURL = async () => {
+      try {
+        const authToken = localStorage.getItem("accessToken");
+        const response = await fetch(
+          `https://nf-api.onrender.com/api/v1/social/profiles/${profileName}/banner`,
+          {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
+          }
+        );
+        if (response.ok) {
+          const bannerData = await response.json();
+          setBannerURL(bannerData.bannerURL || img);
+        } else {
+          setBannerURL(img);
+        }
+      } catch (error) {
+        console.error("Error fetching user's banner:", error);
+        setBannerURL(img);
+      }
+    };
+
     fetchUserPosts();
+    fetchBannerURL();
   }, [profileName]);
 
   const handleAvatarURLChange = (event) => {
