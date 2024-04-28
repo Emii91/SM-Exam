@@ -4,6 +4,7 @@ import Navbar from "../Components/Layouts/Navbar";
 import CreatePostForm from "./Post/CreatePostForm";
 import DeletePost from "./Post/DeletePost";
 import EditPost from "./Post/EditPost";
+import img from "../Components/Assets/bread-821503_1280.jpg";
 import "./MyProfile.css";
 
 const MyProfile = () => {
@@ -144,7 +145,7 @@ const MyProfile = () => {
       <Navbar />
       {bannerURL && (
         <div className="banner-container position-relative">
-          <img src={bannerURL} alt="Banner" className="banner-image" />
+          <img src={bannerURL || img} alt="Banner" className="banner-image" />
           <div
             className="position-absolute bottom-0 start-0 p-3"
             style={{ zIndex: 1 }}
