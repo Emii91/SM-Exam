@@ -55,4 +55,4 @@ A repository link
 https://github.com/Emii91/SM-Exam.git
 
 A hosted application demo link
-https://brilliant-stroopwafel-b2f536.netlify.app/myprofile
+https://brilliant-stroopwafel-b2f536.netlify.app/
