@@ -90,29 +90,57 @@ const MyProfile = () => {
     try {
       const authToken = localStorage.getItem("accessToken");
 
-      const response = await fetch(
-        `https://nf-api.onrender.com/api/v1/social/profiles/${profileName}/media`,
-        {
-          method: "PUT",
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            avatar: avatarURL,
-            banner: bannerURL,
-          }),
-        }
-      );
+      if (avatarURL) {
+        const avatarResponse = await fetch(
+          `https://nf-api.onrender.com/api/v1/social/profiles/${profileName}/media`,
+          {
+            method: "PUT",
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              avatar: avatarURL,
+            }),
+          }
+        );
 
-      if (!response.ok) {
-        throw new Error("Failed to update profile media");
+        if (!avatarResponse.ok) {
+          throw new Error("Failed to update avatar");
+        }
+
+        localStorage.setItem("avatarURL", avatarURL);
+        console.log("Avatar URL updated successfully!");
       }
 
-      localStorage.setItem("avatarURL", avatarURL);
-      localStorage.setItem("bannerURL", bannerURL);
+      if (bannerURL) {
+        console.log("Banner URL to be updated:", bannerURL);
+        const bannerResponse = await fetch(
+          `https://nf-api.onrender.com/api/v1/social/profiles/${profileName}/banner`,
+          {
+            method: "PUT",
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              banner: bannerURL,
+            }),
+          }
+        );
 
-      console.log("Avatar and Banner URLs updated successfully!");
+        console.log("Banner update response:", bannerResponse);
+
+        if (!bannerResponse.ok) {
+          throw new Error("Failed to update banner");
+        }
+
+        localStorage.setItem("bannerURL", bannerURL);
+        console.log("Banner URL updated successfully!");
+      }
+
+      setSuccessMessage("Profile media updated successfully!");
+      setSuccessMessageVisible(true);
     } catch (error) {
       console.error("Error updating profile media:", error);
       setError("Failed to update profile media");
