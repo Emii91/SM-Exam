@@ -63,6 +63,7 @@ const MyProfile = () => {
         if (response.ok) {
           const bannerData = await response.json();
           setBannerURL(bannerData.bannerURL || img);
+          localStorage.setItem("bannerURL", bannerData.bannerURL || img);
         } else {
           setBannerURL(img);
         }
