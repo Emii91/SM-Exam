@@ -54,7 +54,7 @@ const MyProfile = () => {
     };
 
     fetchUserPosts();
-  }, []);
+  }, [profileName]);
 
   const handleAvatarURLChange = (event) => {
     setAvatarURL(event.target.value);
@@ -154,9 +154,6 @@ const MyProfile = () => {
                 onSubmit={handleSubmit}
                 className="mb-3 d-flex align-items-center"
               >
-                {/* <label htmlFor="bannerURL" className="me-2">
-                  New Banner URL:
-                </label> */}
                 <input
                   type="text"
                   id="bannerURL"
