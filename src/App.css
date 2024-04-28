@@ -1,0 +1,17 @@
+P,
+.avatar-placeholder-text,
+.btn-primary,
+a.nav-link {
+  font-family: "Noto Sans", sans-serif;
+}
+
+h1,
+h2 {
+  font-family: "Platypi, sans-serif";
+}
+
+.btn-primary:active,
+.btn-primary:hover {
+  background-color: #c1a089;
+  border-color: #c1a089;
+}

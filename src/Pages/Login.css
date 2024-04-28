@@ -1,0 +1,13 @@
+form.login {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  margin: 20px;
+}
+
+label {
+  margin: 10px;
+}

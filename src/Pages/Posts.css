@@ -1,0 +1,94 @@
+body {
+  background-color: #efedec;
+}
+
+.posts-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  height: 350px;
+  margin-top: 50px;
+}
+
+.post-card {
+  max-width: 300px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+}
+
+.list-group-flush > .list-group-item {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: none;
+}
+
+.card {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  flex: 1;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.card-body {
+  padding: 20px;
+  overflow: auto;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 300px;
+}
+
+div#card-border {
+  box-shadow: none;
+}
+
+form#post-form {
+  box-shadow: none;
+}
+
+button.btn.btn-primary {
+  margin: 20px 0px;
+  background: #c1a089;
+  border: #c1a089;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px;
+  font-size: 30px;
+}
+
+p {
+  font-size: 20px;
+}
+
+.centered {
+  text-align: center;
+}
+
+.post-specific-content {
+  margin: 50px;
+}
+
+i.bi.bi-heart.text-danger,
+i.bi.bi-heart-fill.text-danger {
+  color: #e18a8e !important;
+}
+
+a.post-link {
+  text-decoration: none;
+  color: black;
+}
+
+a.post-link:hover {
+  text-decoration: underline;
+}
